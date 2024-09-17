@@ -6,6 +6,11 @@ pipeline {
                 git url: 'https://github.com/Vijaya150/project01/', branch: "master"
             }
         }
+        stage('Build JAR') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
         stage('Build docker image') {
             steps {
                 script {
